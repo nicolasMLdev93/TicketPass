@@ -1,5 +1,6 @@
 const path = require("path");
 
+// Organización del proyecto para Sequelize CLI
 module.exports = {
   config: path.resolve("sequelize.config.js"),
   "models-path": path.resolve("src/models"),
