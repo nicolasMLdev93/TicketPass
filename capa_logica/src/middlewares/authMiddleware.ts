@@ -1,8 +1,7 @@
-// src/middlewares/authMiddleware.ts
 import { Request, Response, NextFunction } from "express";
 import { verifyToken, JwtPayload } from "../utils/jwt";
 
-// Extendemos Request para incluir el usuario autenticado
+
 declare global {
   namespace Express {
     interface Request {

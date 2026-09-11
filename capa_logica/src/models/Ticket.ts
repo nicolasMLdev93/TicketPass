@@ -1,5 +1,6 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "../config/database";
+import type Reservation from "./Reservation"; 
 
 interface TicketAttributes {
   id: number;
@@ -23,6 +24,9 @@ class Ticket
   declare status: "valid" | "used" | "cancelled";
   declare readonly createdAt: Date;
   declare readonly updatedAt: Date;
+
+  // 👇 NUEVO: declarar la asociación
+  declare reservation?: Reservation;
 }
 
 Ticket.init(
@@ -33,18 +37,15 @@ Ticket.init(
       primaryKey: true,
       allowNull: false,
     },
-
     reservationId: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
     },
-
     ticketCode: {
       type: DataTypes.STRING(100),
       allowNull: false,
       unique: true,
     },
-
     status: {
       type: DataTypes.ENUM("valid", "used", "cancelled"),
       allowNull: false,
