@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { v4 as uuidv4 } from "uuid";
+import { randomUUID } from "crypto";
 import Reservation from "../models/Reservation";
 import Event from "../models/Event";
 import Ticket from "../models/Ticket";
@@ -148,7 +148,7 @@ export const updateReservationStatus = async (req: Request, res: Response): Prom
       for (let i = 0; i < reservation.quantity; i++) {
         tickets.push({
           reservationId: reservation.id,
-          ticketCode: `TKT-${uuidv4().slice(0, 8).toUpperCase()}`,
+          ticketCode: `TKT-${randomUUID().slice(0, 8).toUpperCase()}`,
           status: "valid" as const,
         });
       }

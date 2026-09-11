@@ -12,11 +12,11 @@ const app = express();
 
 app.use(express.json());
 
-// Rutas //
-app.use("/auth", authRoutes);
-app.use("/events", eventRoutes);
-app.use("/reservations", reservationRoutes);
-app.use("/tickets", ticketRoutes);
+// Rutas // 
+app.use("/api/auth", authRoutes);
+app.use("/api/events", eventRoutes);
+app.use("/api/reservations", reservationRoutes);
+app.use("/api/tickets", ticketRoutes);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 export default app;
