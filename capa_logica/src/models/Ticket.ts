@@ -24,8 +24,6 @@ class Ticket
   declare status: "valid" | "used" | "cancelled";
   declare readonly createdAt: Date;
   declare readonly updatedAt: Date;
-
-  // 👇 NUEVO: declarar la asociación
   declare reservation?: Reservation;
 }
 
