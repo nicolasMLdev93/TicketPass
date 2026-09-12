@@ -56,8 +56,8 @@ git clone https://github.com/tu-usuario/ticketpass.git
 
 ### 2. Instalar dependencias del backend (capa_logica)
 
-cd /capa_logica
 ```bash
+cd capa_logica
 npm install
 ```
 
@@ -68,15 +68,15 @@ cd /capa_logica
 
 ### 4. Compilar capa_logica
 
-cd /capa_logica
 ```bash
+cd capa_logica
 npm run build
 ```
 
 ▶️ Modo desarrollo
 
-cd capa_logica
 ```bash
+cd capa_logica
 npm run dev
 ```
 
@@ -87,31 +87,32 @@ http://localhost:3000/api-docs
 
 🏗️ Compilar para producción
 
-cd /capa_logica
 ```bash
+cd capa_logica
 npm run build
 ```
 ```bash
+cd capa_logica
 npm start
 ```
 
 🗄️ Migrar base de datos Base de datos
 
-cd /capa_logica
 ```bash
+cd capa_logica
 npm run migrate
 ```
 
 🗄️ Cargar tabla eventos en la base de datos con script
 
-cd /capa_logica
 ```bash
+cd capa_logica
 npm run seed
 ```
 
 🧪 Testing
 
-cd capa_logica
 ```bash
+cd capa_logica
 npm test
 ```
