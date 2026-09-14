@@ -23,7 +23,9 @@ export const validateRegister = [
     .notEmpty()
     .withMessage("La contraseña es obligatoria")
     .isLength({ min: 6 })
-    .withMessage("La contraseña debe tener al menos 6 caracteres"),
+    .withMessage("La contraseña debe tener al menos 6 caracteres")
+    .matches(/\d{4,}/)
+    .withMessage("La contraseña debe contener al menos 4 números seguidos"),
 
   handleValidationErrors,
 ];
@@ -38,9 +40,7 @@ export const validateLogin = [
     .withMessage("El email no tiene un formato válido")
     .normalizeEmail(),
 
-  body("password")
-    .notEmpty()
-    .withMessage("La contraseña es obligatoria"),
+  body("password").notEmpty().withMessage("La contraseña es obligatoria"),
 
   handleValidationErrors,
 ];

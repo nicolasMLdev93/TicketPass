@@ -27,11 +27,6 @@ export default function Register() {
     e.preventDefault();
     setError("");
 
-    if (form.password.length < 6) {
-      setError("La contraseña debe tener al menos 6 caracteres");
-      return;
-    }
-
     if (form.password !== form.confirmPassword) {
       setError("Las contraseñas no coinciden");
       return;
@@ -53,13 +48,15 @@ export default function Register() {
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.message || "Error al crear la cuenta");
+        setError(
+          data.errors?.[0]?.message || data.message || "Error desconocido",
+        );
         return;
       }
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
-      navigate("/events");
+      navigate("/home");
     } catch {
       setError("Error de conexión con el servidor");
     } finally {
@@ -69,23 +66,19 @@ export default function Register() {
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center px-4 py-12 relative overflow-hidden">
-     
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="w-full max-w-md relative z-10">
-        
         <div className="flex justify-center mb-8">
           <Link to="/">
             <Logo size={64} showText={false} />
           </Link>
         </div>
 
-       
         <div className="bg-neutral-950 rounded-2xl p-8 shadow-2xl border border-neutral-800 relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
 
-       
           <div className="text-center mb-8">
             <h1 className="text-2xl font-bold text-white mb-2">
               Creá tu cuenta
@@ -103,7 +96,6 @@ export default function Register() {
           )}
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-         
             <div>
               <label
                 htmlFor="name"
@@ -124,7 +116,6 @@ export default function Register() {
               />
             </div>
 
-    
             <div>
               <label
                 htmlFor="email"
@@ -145,7 +136,6 @@ export default function Register() {
               />
             </div>
 
-          
             <div>
               <label
                 htmlFor="password"
@@ -182,7 +172,6 @@ export default function Register() {
               </div>
             </div>
 
-        
             <div>
               <label
                 htmlFor="confirmPassword"
@@ -221,7 +210,6 @@ export default function Register() {
               </div>
             </div>
 
-        
             <button
               type="submit"
               disabled={loading}
@@ -237,7 +225,6 @@ export default function Register() {
             <div className="flex-1 h-px bg-neutral-800" />
           </div>
 
-    
           <p className="text-center text-sm text-neutral-400">
             ¿Ya tenés cuenta?{" "}
             <Link

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import {
   FiCalendar,
   FiTag,
-  FiTrendingUp,
   FiArrowRight,
 } from "react-icons/fi";
 
@@ -23,12 +22,6 @@ export default function DashboardHome() {
       value: "3",
       icon: <FiTag className="w-5 h-5" />,
       color: "blue",
-    },
-    {
-      label: "Este mes",
-      value: "2 eventos",
-      icon: <FiTrendingUp className="w-5 h-5" />,
-      color: "emerald",
     },
   ];
 
