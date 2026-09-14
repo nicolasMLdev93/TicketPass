@@ -32,7 +32,9 @@ export default function Login() {
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.message || "Credenciales inválidas");
+        setError(
+          data.errors?.[0]?.message || data.message || "Error desconocido",
+        );
         return;
       }
 
