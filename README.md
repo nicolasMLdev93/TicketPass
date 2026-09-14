@@ -78,7 +78,7 @@ ticketpass/
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/ticketpass.git
+git clone https://github.com/nicolasMLdev93/ticketpass.git
 cd ticketpass
 ```
 
