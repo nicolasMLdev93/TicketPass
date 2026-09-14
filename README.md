@@ -104,30 +104,35 @@ cp .env.example .env
 **4. Migrar la base de datos**
 
 ```bash
+cd capa_logica
 npm run migrate
 ```
 
 **5. Cargar datos iniciales (seed de eventos)**
 
 ```bash
+cd capa_logica
 npm run seed
 ```
 
 **6. Compilar el proyecto**
 
 ```bash
+cd capa_logica
 npm run build
 ```
 
 **7. Ejecutar en modo desarrollo**
 
 ```bash
+cd capa_logica
 npm run dev
 ```
 
 **8. Compilar y ejecutar en producción**
 
 ```bash
+cd capa_logica
 npm run build
 npm start
 ```
@@ -155,16 +160,17 @@ http://localhost:5173
 
 ---
 
-## 📜 Scripts disponibles (`capa_logica`)
+## 📜 Scripts disponibles
 
-| Comando | Descripción |
-|---|---|
-| `npm run dev` | Levanta el servidor en modo desarrollo con hot-reload. |
-| `npm run build` | Compila el proyecto TypeScript a JavaScript. |
-| `npm start` | Ejecuta la versión compilada (producción). |
-| `npm run migrate` | Aplica las migraciones de la base de datos. |
-| `npm run seed` | Carga datos iniciales (eventos) en la base de datos. |
-| `npm test` | Ejecuta la suite de tests con Jest + Supertest. |
+| Comando | Directorio | Descripción |
+|---|---|---|
+| `npm run dev` | `capa_logica` | Levanta el servidor backend en modo desarrollo con hot-reload. |
+| `npm run build` | `capa_logica` | Compila el proyecto TypeScript a JavaScript. |
+| `npm start` | `capa_logica` | Ejecuta la versión compilada del backend (producción). |
+| `npm run migrate` | `capa_logica` | Aplica las migraciones de la base de datos. |
+| `npm run seed` | `capa_logica` | Carga datos iniciales (eventos) en la base de datos. |
+| `npm test` | `capa_logica` | Ejecuta la suite de tests con Jest + Supertest. |
+| `npm run dev` | `capa_grafica` | Levanta el frontend en modo desarrollo. |
 
 ---
 
@@ -181,6 +187,8 @@ http://localhost:3000/api-docs
 ## 🧪 Testing
 
 Los tests corren sobre una base de datos **SQLite en memoria**, por lo que no afectan la base de datos MySQL configurada.
+
+Ejecutar desde **`capa_logica`**:
 
 ```bash
 cd capa_logica
