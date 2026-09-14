@@ -210,6 +210,3 @@ npm test
 
 ---
 
-## 📄 Licencia
-
-Este proyecto se distribuye bajo la licencia que definas para el repositorio (ej. MIT). Actualizá esta sección según corresponda.
