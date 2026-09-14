@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FiEye, FiEyeOff } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiLoader } from "react-icons/fi";
 import Logo from "../icons/logo";
 import { API_BASE_URL } from "../utils/config";
 
@@ -213,9 +213,16 @@ export default function Register() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 disabled:opacity-50 disabled:cursor-not-allowed text-black font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 hover:-translate-y-0.5 active:translate-y-0 mt-2"
+              className="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 disabled:opacity-50 disabled:cursor-not-allowed text-black font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 hover:-translate-y-0.5 active:translate-y-0 mt-2 flex items-center justify-center gap-2"
             >
-              {loading ? "Creando cuenta..." : "Crear cuenta"}
+              {loading ? (
+                <>
+                  <FiLoader className="w-5 h-5 animate-spin" />
+                  <span>Creando cuenta...</span>
+                </>
+              ) : (
+                "Crear cuenta"
+              )}
             </button>
           </form>
 

@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FiEye, FiEyeOff } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiLoader } from "react-icons/fi";
 import Logo from "../icons/logo";
 import { API_BASE_URL } from "../utils/config";
 
@@ -50,23 +50,19 @@ export default function Login() {
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center px-4 py-12 relative overflow-hidden">
-   
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="w-full max-w-md relative z-10">
-    
         <div className="flex justify-center mb-8">
           <Link to="/">
             <Logo size={64} showText={false} />
           </Link>
         </div>
 
-       
         <div className="bg-neutral-950 rounded-2xl p-8 shadow-2xl border border-neutral-800 relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
 
-        
           <div className="text-center mb-8">
             <h1 className="text-2xl font-bold text-white mb-2">
               Bienvenido de vuelta
@@ -76,7 +72,6 @@ export default function Login() {
             </p>
           </div>
 
-      
           {error && (
             <div className="mb-6 bg-red-500/10 border border-red-500/30 text-red-400 text-sm rounded-lg px-4 py-3 flex items-start gap-2">
               <span className="text-lg leading-none">⚠️</span>
@@ -84,9 +79,7 @@ export default function Login() {
             </div>
           )}
 
-          
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-           
             <div>
               <label
                 htmlFor="email"
@@ -107,7 +100,6 @@ export default function Login() {
               />
             </div>
 
-          
             <div>
               <label
                 htmlFor="password"
@@ -144,24 +136,28 @@ export default function Login() {
               </div>
             </div>
 
-          
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 disabled:opacity-50 disabled:cursor-not-allowed text-black font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 hover:-translate-y-0.5 active:translate-y-0 mt-2"
+              className="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 disabled:opacity-50 disabled:cursor-not-allowed text-black font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 hover:-translate-y-0.5 active:translate-y-0 mt-2 flex items-center justify-center gap-2"
             >
-              {loading ? "Ingresando..." : "Iniciar sesión"}
+              {loading ? (
+                <>
+                  <FiLoader className="w-5 h-5 animate-spin" />
+                  <span>Ingresando...</span>
+                </>
+              ) : (
+                "Iniciar sesión"
+              )}
             </button>
           </form>
 
-        
           <div className="flex items-center gap-3 my-6">
             <div className="flex-1 h-px bg-neutral-800" />
             <span className="text-xs text-neutral-600 font-medium">o</span>
             <div className="flex-1 h-px bg-neutral-800" />
           </div>
 
-        
           <p className="text-center text-sm text-neutral-400">
             ¿No tenés cuenta?{" "}
             <Link
