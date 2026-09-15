@@ -413,7 +413,7 @@ export default function EventModal({
                 onClick={handleConfirm}
                 className="flex-1 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-black font-bold py-3 rounded-xl transition-all shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40"
               >
-                Confirmar compra
+                Confirmar
               </button>
             </div>
           </div>
